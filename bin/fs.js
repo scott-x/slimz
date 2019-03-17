@@ -22,6 +22,6 @@ function rename(old_path,new_Path){
 }
 
 module.exports={
-	mkdir
+	mkdir,
 	rename
 };

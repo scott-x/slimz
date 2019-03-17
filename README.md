@@ -1,5 +1,5 @@
-## description
-utils for node.js
+## Description
+Utils for node.js
 
 ## API
 ### getTimeString(type)
