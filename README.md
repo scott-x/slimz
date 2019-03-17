@@ -2,6 +2,17 @@
 Utils for node.js
 
 ## API
+- `getTimeString(type)`
+- `copy(from,to)`
+- `mkdir_p(folder)`
+- `rm_rf(folder)`
+- `readFile(file)`
+- `readJson(jsonFile)`
+- `createFile(file)`
+- `writeFile(file,data)`
+- `writeJson(file,json_data)`
+- `readJson(jsonFile)`
+
 ### getTimeString(type)
 ```
 const { getTimeString } = require('slimz');
@@ -20,5 +31,37 @@ getTimeString(type)
 - `getTimeString('mm/dd')`: 03/17
 - `getTimeString('hh:mm:ss')`: 11:31:18
 - `getTimeString('hh时:mm分:ss秒')`: 11时31分18秒
+
+### rename
+```
+const { rename } = require('slimz');
+
+rename('package.json','newName.json').then(()=>{
+	//success
+})
+
+//you can use it by chain
+rename('package.json','newName.json').then(()=>{
+	//success
+	return rename('oldFile','newFile')
+}).then(()=>{
+	return mkdir('./a')
+})
+...
+
+```
+
+### mkdir
+```
+const { mkdir } = require('slimz');
+
+mkdir('./a').then(()=>{
+	return mkdir('a/b')
+}).then(()=>{
+
+}).catch(err=>{
+	console.log(err)
+})
+```
 
 
