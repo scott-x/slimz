@@ -1,5 +1,18 @@
 const getTimeString = require('./date');
-const { mkdir, rename } = require('./fs');
+const { 
+	mkdir, 
+	rename, 
+	copy, 
+	mkdir_p, 
+	rm_rf, 
+	readFile ,
+	readJson, 
+	createFile , 
+	writeFile, 
+	writeJson,
+	readJson,
+	exists
+	 } = require('./fs');
 
 module.exports={
 	getTimeString,
@@ -13,5 +26,6 @@ module.exports={
 	createFile,
 	writeFile,
 	writeJson,
-	readJson
+	readJson,
+	exists
 }

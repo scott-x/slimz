@@ -118,6 +118,20 @@ function readJson(jsonFile){
 	return promise;
 }
 
+function exists(Path){
+	const promise = new Promise((resolve,reject)=>{
+		fs.exists(Path, function(exists){
+		        if(!exists){
+		            resolve(false)
+		        }else{
+		            resolve(true)
+		        }
+		});
+	})
+	return promise;
+}
+
+
 //无论是创建文件还是文件夹，如果文件不存在则会自动创建，如果存在则会忽略
 //所有函数都返回promise
 module.exports={
@@ -131,5 +145,6 @@ module.exports={
 	createFile,
 	writeFile,
 	writeJson,
-	readJson
+	readJson,
+	exists
 };

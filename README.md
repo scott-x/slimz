@@ -11,7 +11,7 @@ Utils for node.js
 - `createFile(file)`
 - `writeFile(file,data)`
 - `writeJson(file,json_data)`
-- `readJson(jsonFile)`
+- `exists(Path)`: 这里(文件系统)的path和js的path不一样，起点是项目跟目录
 
 ### getTimeString(type)
 ```
@@ -61,6 +61,13 @@ mkdir('./a').then(()=>{
 
 }).catch(err=>{
 	console.log(err)
+})
+```
+
+### exists
+```
+exists('package.json').then(data=>{
+	console.log(data)
 })
 ```
 
