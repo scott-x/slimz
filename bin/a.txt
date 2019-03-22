@@ -1,8 +1,0 @@
-total 32
-drwxr-xr-x  7 apple  staff   238  3 22 20:25 .
-drwxr-xr-x  8 apple  staff   272  3 22 19:50 ..
--rw-r--r--  1 apple  staff     0  3 22 20:25 a.txt
--rw-r--r--  1 apple  staff  1532  3 22 19:50 date.js
--rw-r--r--  1 apple  staff  3096  3 22 19:50 fs.js
--rw-r--r--  1 apple  staff   348  3 22 19:50 index.js
--rw-r--r--@ 1 apple  staff   565  3 22 20:25 process.js
