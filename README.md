@@ -3,6 +3,7 @@ Utils for node.js
 
 ## API
 - `getTimeString(type)`
+- `rename(old_file, new_file)`
 - `copy(from,to)`
 - `mkdir_p(folder)`
 - `rm_rf(folder)`
@@ -12,6 +13,7 @@ Utils for node.js
 - `writeFile(file,data)`
 - `writeJson(file,json_data)`
 - `exists(Path)`: 这里(文件系统)的path和js的path不一样，起点是项目跟目录
+- `exec_cmd(linux_cmd,cb)`: cb will exec after linux_cmd, note the result of the linux_cmd will not show in screen, so you should make it into a output stream, like `echo hello > a.txt`
 
 ### getTimeString(type)
 ```
@@ -70,5 +72,12 @@ exists('package.json').then(data=>{
 	console.log(data)
 })
 ```
-
+### exec_cmd
+```
+exec_cmd(`ls -al > a.txt`,()=>{
+   console.log("finish")
+}).then((data)=>{
+    console.log(data)
+})
+```
 

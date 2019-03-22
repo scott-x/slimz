@@ -1,4 +1,5 @@
 const getTimeString = require('./date');
+const exec_cmd = require('./process');
 
 const { 
 	mkdir, 
@@ -27,5 +28,6 @@ module.exports={
 	writeFile,
 	writeJson,
 	readJson,
-	exists
+	exists,
+	exec_cmd
 }
