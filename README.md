@@ -1,8 +1,24 @@
 ## Description
 Utils for node.js
 
-## API
+## Normal API
 - `getTimeString(type)`
+- `getFileExtension(file)`: Return the extension of the file. The file here can be any string that contains the file name.
+
+#### type options
+- `getTimeString()`: 2019年03月17日 11:31:18
+- `getTimeString('yyyymmdd')`: 20190317
+- `getTimeString('yyyy年mm月dd日')`: 2019年03月17日
+- `getTimeString('yyyy-mm-dd')`: 2019-03-17
+- `getTimeString('yyyy/mm/dd')`: 2019/03/17
+- `getTimeString('mmdd')`: 0317
+- `getTimeString('mm月dd日')`: 03月17日
+- `getTimeString('mm-dd')`: 03-17
+- `getTimeString('mm/dd')`: 03/17
+- `getTimeString('hh:mm:ss')`: 11:31:18
+- `getTimeString('hh时:mm分:ss秒')`: 11时31分18秒
+
+### Promise API
 - `rename(old_file, new_file)`
 - `copy(from,to)`
 - `mkdir_p(folder)`
@@ -21,21 +37,7 @@ Utils for node.js
 ```
 const { getTimeString } = require('slimz');
 getTimeString(type)
-
 ```
-#### type option
-- `getTimeString()`: 2019年03月17日 11:31:18
-- `getTimeString('yyyymmdd')`: 20190317
-- `getTimeString('yyyy年mm月dd日')`: 2019年03月17日
-- `getTimeString('yyyy-mm-dd')`: 2019-03-17
-- `getTimeString('yyyy/mm/dd')`: 2019/03/17
-- `getTimeString('mmdd')`: 0317
-- `getTimeString('mm月dd日')`: 03月17日
-- `getTimeString('mm-dd')`: 03-17
-- `getTimeString('mm/dd')`: 03/17
-- `getTimeString('hh:mm:ss')`: 11:31:18
-- `getTimeString('hh时:mm分:ss秒')`: 11时31分18秒
-
 ### mkdir
 ```
 const { mkdir } = require('slimz');

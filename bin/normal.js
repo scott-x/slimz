@@ -7,7 +7,6 @@ function getFileExtension(file){
       return file.substring(index+1)
     }
   }
-
   module.exports={
     getFileExtension
   }
