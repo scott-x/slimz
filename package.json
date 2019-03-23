@@ -1,6 +1,6 @@
 {
   "name": "slimz",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A util for node.js",
   "main": "./bin/index.js",
   "scripts": {
