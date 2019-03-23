@@ -12,9 +12,10 @@ Utils for node.js
 - `createFile(file)`
 - `writeFile(file,data)`
 - `writeJson(file,json_data)`
-- `exists(Path)`: 这里(文件系统)的path和js的path不一样，起点是项目跟目录
-- `exec_cmd(linux_cmd,cb)`: cb will exec after linux_cmd, note the result of the linux_cmd will not show in screen, so you should make it into a output stream, like `echo hello > a.txt`
+- `exists(Path)`: The Path here is belong to file-system, which is a bit difference from js
+- `exec_cmd(linux_cmd,cb)`: cb will exec after linux_cmd, note the result of the linux_cmd will not show in screen, so you should make it into a output stream, like `echo hello > a.txt`, ofcourse you can excute bash here
 
+## example
 ### getTimeString(type)
 ```
 const { getTimeString } = require('slimz');
@@ -33,25 +34,6 @@ getTimeString(type)
 - `getTimeString('mm/dd')`: 03/17
 - `getTimeString('hh:mm:ss')`: 11:31:18
 - `getTimeString('hh时:mm分:ss秒')`: 11时31分18秒
-
-### rename
-```
-const { rename } = require('slimz');
-
-rename('package.json','newName.json').then(()=>{
-	//success
-})
-
-//you can use it by chain
-rename('package.json','newName.json').then(()=>{
-	//success
-	return rename('oldFile','newFile')
-}).then(()=>{
-	return mkdir('./a')
-})
-...
-
-```
 
 ### mkdir
 ```

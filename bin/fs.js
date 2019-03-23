@@ -95,8 +95,8 @@ function writeFile(file,data){
 	return promise;
 }
 
-//可以将数据库的data导出为json
-//json_data: {name:"scott",age:18}
+// Note: You can output the data from database into a json file
+// json_data: {name:"scott",age:18}
 function writeJson(file,json_data){
 	const promise = new Promise((resolve,reject)=>{
 		fsa.outputJson(file, json_data,function(err) {
@@ -130,10 +130,8 @@ function exists(Path){
 	})
 	return promise;
 }
-
-
-//无论是创建文件还是文件夹，如果文件不存在则会自动创建，如果存在则会忽略
-//所有函数都返回promise
+// Summary: No matter what file or folder type it is, if doesn't exists, it will created automately, otherwise it will be ignored
+// All function return a promise
 module.exports={
 	mkdir,
 	rename,
