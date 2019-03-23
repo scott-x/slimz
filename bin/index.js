@@ -1,6 +1,6 @@
 const getTimeString = require('./date');
 const { exec_cmd } = require('./process');
-const { getFileExtension } = require('./normal');
+const getFileExtension = require('./normal');
 const { 
 	mkdir, 
 	rename, 
@@ -12,7 +12,8 @@ const {
 	createFile , 
 	writeFile, 
 	writeJson,
-	exists
+	exists,
+	getFileList
 	 } = require('./fs');
 
 module.exports={
