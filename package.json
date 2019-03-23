@@ -12,6 +12,7 @@
   "author": "Scott Xiong",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "walk": "^2.3.14"
   }
 }
