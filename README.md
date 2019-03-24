@@ -30,7 +30,7 @@ Utils for node.js
 - `writeJson(file,json_data)`
 - `exists(Path)`: The Path here is belong to file-system, which is a bit difference from js
 - `exec_cmd(linux_cmd,cb)`: cb will exec after linux_cmd, note the result of the linux_cmd will not show in screen, so you should make it into a output stream, like `echo hello > a.txt`, ofcourse you can excute bash here
-- `getFileList(options)`:return a obj like `{files:[...],dirs:[...]}`
+- `getFileList(options)`:Recive options, data structure liike `{folder:"",skip:[],ext:[]}`, return a obj like `{files:[...],dirs:[...]}`
 
 ## example
 ### getTimeString(type)
@@ -66,14 +66,17 @@ exec_cmd(`ls -al > a.txt`,()=>{
 })
 ```
 ### getFileList(options)
+
 #### options<Object>
+
 - folder: The path of the folder
 - skip: The folder you want to skip. it must be an Array
 - ext: Filter the extension, it must be an Array
+
 ```
 const options={
   folder: path.resolve(__dirname),
-  skip:['node_modules/slimz','node_modules/fs-extra','node_modules/walk'],
+  skip:['node_modules/slimz','node_modules/fs-extra'],
   ext:['md']
 }
 

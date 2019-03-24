@@ -138,13 +138,15 @@ function getFileList(options){
 	const promise = new Promise((resolve,reject)=>{
 	   var walker  = walk.walk(options.folder, { followLinks: false, filters: options.skip});
 		walker.on('file', function(roots, stat, next) {
-			console.log("stat.name",stat.name);
-			console.log("type stat.name",typeof(stat.name));
+			// console.log("stat.name",stat.name);
+			// console.log("type stat.name",typeof(stat.name));
 			options.ext.forEach(ext=>{
 			  const index = stat.name.lastIndexOf('.');
 			  const extension = stat.name.substring(index+1);
-			  if (extension===ext) {
-				files.push(roots + '/' + stat.name);
+			  if (extension===ext && stat.name.substring(0,1)!=='.') {
+			  	const file = roots + '/' + stat.name;
+			  	console.log(file)
+				files.push(file);
 			  }
 			})
 			next();
@@ -168,6 +170,7 @@ function getFileList(options){
 	});
 	return promise;
  }
+
 
 // Summary: No matter what file or folder type it is, if doesn't exists, it will created automately, otherwise it will be ignored
 // All function return a promise
