@@ -65,14 +65,15 @@ exec_cmd(`ls -al > a.txt`,()=>{
     console.log(data)
 })
 ```
+
 ### getFileList(options)
 
 #### options<Object>
+- `folder`: The path of the folder
+- `skip`: The folder you want to skip, it must be an Array
+- `ext`: Filter the extension, it must be an Array
 
-- folder: The path of the folder
-- skip: The folder you want to skip. it must be an Array
-- ext: Filter the extension, it must be an Array
-
+**example**
 ```
 const options={
   folder: path.resolve(__dirname),
