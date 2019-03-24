@@ -1,7 +1,6 @@
 var fs = require('fs');
 var fsa = require('fs-extra');
 var path = require('path');
-var walk = require('walk');
 
 function mkdir(folder_path){
 	const promise = new Promise((resolve,reject)=>{
@@ -133,29 +132,42 @@ function exists(Path){
 	return promise;
 }
 
-function getFileList(AbsoluteFolder){
-   var files = [],dirs = [];
-   const promise = new Promise((resolve,reject)=>{
-      var walker  = walk.walk(AbsoluteFolder, { followLinks: false });
-    
-       walker.on('file', function(roots, stat, next) {
-           files.push(roots + '/' + stat.name);
-           next();
-       });
-    
-       walker.on('directory', function(roots, stat, next) {
-           dirs.push(roots + '/' + stat.name);
-           next();
-       });
-       walker.on('end', function() {
-          resolve({
-              files,
-              dirs
-          })
-       });
-   });
-   return promise;
-}
+function getFileList(options){
+	var walk = require('walk');
+	var files = [],dirs = [];
+	const promise = new Promise((resolve,reject)=>{
+	   var walker  = walk.walk(options.folder, { followLinks: false, filters: options.skip});
+		walker.on('file', function(roots, stat, next) {
+			console.log("stat.name",stat.name);
+			console.log("type stat.name",typeof(stat.name));
+			options.ext.forEach(ext=>{
+			  const index = stat.name.lastIndexOf('.');
+			  const extension = stat.name.substring(index+1);
+			  if (extension===ext) {
+				files.push(roots + '/' + stat.name);
+			  }
+			})
+			next();
+		});
+	 
+		walker.on('directory', function(roots, stat, next) {
+			dirs.push(roots + '/' + stat.name);
+			next();
+		});
+ 
+		walker.on("errors", function (root, nodeStatsArray, next) {
+		   next();
+		 });
+		
+		walker.on('end', function() {
+		   resolve({
+			   files,
+			   dirs
+		   })
+		});
+	});
+	return promise;
+ }
 
 // Summary: No matter what file or folder type it is, if doesn't exists, it will created automately, otherwise it will be ignored
 // All function return a promise

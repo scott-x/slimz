@@ -30,7 +30,7 @@ Utils for node.js
 - `writeJson(file,json_data)`
 - `exists(Path)`: The Path here is belong to file-system, which is a bit difference from js
 - `exec_cmd(linux_cmd,cb)`: cb will exec after linux_cmd, note the result of the linux_cmd will not show in screen, so you should make it into a output stream, like `echo hello > a.txt`, ofcourse you can excute bash here
-- `getFileList(AbsoluteFolderPath)`:return the file list
+- `getFileList(AbsoluteFolderPath)`:return a obj like `{files:[...],dirs:[...]}`
 
 ## example
 ### getTimeString(type)
@@ -67,7 +67,15 @@ exec_cmd(`ls -al > a.txt`,()=>{
 ```
 ### getFileList
 ```
-getFileList(path.resolve(__dirname)).then(data=>{
-    console.log(data)
+const options={
+  folder: path.resolve(__dirname),
+  skip:['node_modules/slimz','node_modules/fs-extra','node_modules/walk'],
+  ext:['md']
+}
+
+getFileList(options).then(data=>{
+  console.log(data)
+}).catch(err=>{
+  console.log(err);
 })
 ```
