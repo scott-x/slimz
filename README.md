@@ -86,4 +86,17 @@ getFileList(options).then(data=>{
 }).catch(err=>{
   console.log(err);
 })
+//also you can do like this:
+const { getFileList } = require('slimz')
+async function run(){
+  const options = {
+    folder:"/Volumes/datavolumn_bmkserver_Pub/新做稿",
+    skip:['摄影'],
+    ext:['xls','xlsx']
+  }
+  let files = await getFileList(options)
+  console.log(files)
+}
+
+run()
 ```
