@@ -1,4 +1,4 @@
-const getTimeString = require('./date');
+const { getDay, getTimeString } = require('./date');
 const { exec_cmd } = require('./process');
 const getFileExtension = require('./normal');
 const { 
@@ -18,6 +18,7 @@ const {
 
 module.exports={
 	getTimeString,
+	getDay,
 	mkdir,
 	rename,
 	copy,

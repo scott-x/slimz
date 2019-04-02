@@ -49,4 +49,23 @@ function getTimeString(type){
   }
 }
 
-module.exports=getTimeString;
+function getDay(day){
+    var today = new Date();
+    var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;
+    today.setTime(targetday_milliseconds); //note, here is the core code
+    var tYear = today.getFullYear();
+    var tMonth = today.getMonth()+1;
+    var tDate = today.getDate();
+    tMonth=tMonth<=9?('0'+tMonth):tMonth;
+    tDate=tDate<=9?('0'+tDate):tDate;
+    return {
+        f:tYear+tMonth,
+        s:tMonth+tDate
+        
+    }
+}
+
+module.exports={
+   getDay,
+   getTimeString
+}
