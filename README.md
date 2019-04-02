@@ -3,6 +3,7 @@ Utils for node.js
 
 ## Normal API
 - `getTimeString(type)`
+- `getDay(number)` eg:-1,0,1,2,3...
 - `getFileExtension(file)`: Return the extension of the file. The file here can be any string that contains the file name.
 
 #### type options
