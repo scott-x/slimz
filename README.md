@@ -70,7 +70,7 @@ exec_cmd(`ls -al > a.txt`,()=>{
 
 ### getFileList(options)
 
-#### options<Object>
+#### `options<Object>`
 
 - folder: The path of the folder
 - skip: The folder you want to skip, it must be an Array
