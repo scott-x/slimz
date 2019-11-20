@@ -35,13 +35,13 @@ Utils for node.js
 
 ## example
 ### getTimeString(type)
-```
+```js
 const { getTimeString } = require('slimz');
 getTimeString(type)
 ```
 ### mkdir(dir)
 
-```
+```js
 const { mkdir } = require('slimz');
 
 mkdir('./a').then(()=>{
@@ -54,13 +54,13 @@ mkdir('./a').then(()=>{
 ```
 
 ### exists(filePath)
-```
+```js
 exists('package.json').then(data=>{
 	console.log(data)
 })
 ```
 ### exec_cmd(linx_cmd)
-```
+```js
 exec_cmd(`ls -al > a.txt`,()=>{
    console.log("finish")
 }).then((data)=>{
@@ -76,9 +76,10 @@ exec_cmd(`ls -al > a.txt`,()=>{
 - skip: The folder you want to skip, it must be an Array
 - ext: Filter the extension, it must be an Array
 
-example
 
-```
+example:
+
+```js
 const options={
   folder: path.resolve(__dirname),
   skip:['node_modules/slimz','node_modules/fs-extra'],
