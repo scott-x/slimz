@@ -34,7 +34,7 @@ function getTimeString(type){
        return year+'年'+mon+'月'; 
      // Month Day
      case 'mmdd':
-       return mon+day;
+       return mon.toString()+day.toString();
      case 'mm/dd':
        return mon+'/'+day;
      case 'mm月dd日':
